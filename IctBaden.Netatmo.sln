@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2043
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IctBaden.Netatmo.PresenceApp", "IctBaden.Netatmo.PresenceApp\IctBaden.Netatmo.PresenceApp.csproj", "{A582B22C-29F1-4889-A644-0CB4B46BA424}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IctBaden.Netatmo.Connect", "IctBaden.Netatmo.Connect\IctBaden.Netatmo.Connect.csproj", "{CC89F79E-0B63-4CCB-B45B-CA6F38C92242}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A582B22C-29F1-4889-A644-0CB4B46BA424}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A582B22C-29F1-4889-A644-0CB4B46BA424}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A582B22C-29F1-4889-A644-0CB4B46BA424}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A582B22C-29F1-4889-A644-0CB4B46BA424}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC89F79E-0B63-4CCB-B45B-CA6F38C92242}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC89F79E-0B63-4CCB-B45B-CA6F38C92242}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC89F79E-0B63-4CCB-B45B-CA6F38C92242}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC89F79E-0B63-4CCB-B45B-CA6F38C92242}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A1D8D616-6766-46F4-A8B9-8CA4F6CB85C1}
+	EndGlobalSection
+EndGlobal
