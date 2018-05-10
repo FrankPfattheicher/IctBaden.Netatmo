@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using IctBaden.Netatmo.Connect;
+using IctBaden.Netatmo.Connect.Api;
+using IctBaden.Netatmo.Connect.Auth;
 
 namespace IctBaden.Netatmo.PresenceApp
 {
@@ -41,6 +43,13 @@ namespace IctBaden.Netatmo.PresenceApp
                 {
                     Console.WriteLine($"Camera({camera.Id}): {camera.Name}");
                 }
+            }
+
+            var firstCamera = homeData.Homes.First().Cameras.First();
+            var events = Presence.GetCameraEvents(token.AccessToken, firstCamera.Id, 5);
+            foreach (var ev in events)
+            {
+                Console.WriteLine($"{ev.LocalTime():g} {ev.Type}({ev.Category}): {ev.MessageText()}");
             }
 
             Console.WriteLine("Press RETURN to exit.");

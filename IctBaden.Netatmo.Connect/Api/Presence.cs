@@ -1,18 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
+using IctBaden.Netatmo.Connect.Models;
 using Newtonsoft.Json;
 
-namespace IctBaden.Netatmo.Connect
+namespace IctBaden.Netatmo.Connect.Api
 {
-    public class SmartHome
+    public class Presence
     {
         /// <summary>
         /// https://dev.netatmo.com/resources/technical/reference/security/gethomedata
         /// </summary>
-        public static HomeData GetHomeData(string accessToken)
+        public static List<Event> GetCameraEvents(string accessToken, string cameraId, int maxCount)
         {
             try
             {
@@ -21,7 +24,8 @@ namespace IctBaden.Netatmo.Connect
                     var vals = new NameValueCollection
                     {
                         { "access_token", accessToken },
-                        { "size", "0" }
+                        { "device_id", cameraId },
+                        { "size", maxCount.ToString() }
                     };
                     var url = $"https://{Netatmo.ApiHost}/api/gethomedata";
                     var response = client.UploadValues(url, HttpMethod.Post.Method, vals);
@@ -30,7 +34,7 @@ namespace IctBaden.Netatmo.Connect
 
                     if (homeData.IsOk())
                     {
-                        return homeData.Body;
+                        return homeData.Body.Homes.First().Events;
                     }
                 }
             }

@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace IctBaden.Netatmo.Connect
+namespace IctBaden.Netatmo.Connect.Auth
 {
-    public class AuthToken
+    public class AuthTokens
     {
         [JsonProperty("access_token")]
         public string AccessToken { get; set; }

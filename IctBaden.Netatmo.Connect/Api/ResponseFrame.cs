@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace IctBaden.Netatmo.Connect
+namespace IctBaden.Netatmo.Connect.Api
 {
     public class ResponseFrame<T>
     {

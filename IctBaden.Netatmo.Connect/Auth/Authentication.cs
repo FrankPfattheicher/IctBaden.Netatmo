@@ -6,7 +6,7 @@ using System.Net.Http;
 using System.Text;
 using Newtonsoft.Json;
 
-namespace IctBaden.Netatmo.Connect
+namespace IctBaden.Netatmo.Connect.Auth
 {
     /// <summary>
     /// To access users data, you will need an access token for each of your users. 
@@ -17,7 +17,7 @@ namespace IctBaden.Netatmo.Connect
     /// </summary>
     public class Authentication
     {
-        public AuthToken GetAccessTokens(string clientId, string clientSecret, string username, string password, List<string> requestedScopes)
+        public AuthTokens GetAccessTokens(string clientId, string clientSecret, string username, string password, List<string> requestedScopes)
         {
             try
             {
@@ -35,7 +35,7 @@ namespace IctBaden.Netatmo.Connect
                     var url = $"https://{Netatmo.ApiHost}/oauth2/token";
                     var response = client.UploadValues(url, HttpMethod.Post.Method, vals);
                     var json = Encoding.ASCII.GetString(response);
-                    var tokens = JsonConvert.DeserializeObject<AuthToken>(json);
+                    var tokens = JsonConvert.DeserializeObject<AuthTokens>(json);
                     return tokens;
                 }
             }
