@@ -5,6 +5,7 @@ using System.Linq;
 using IctBaden.Netatmo.Connect;
 using IctBaden.Netatmo.Connect.Api;
 using IctBaden.Netatmo.Connect.Auth;
+using IctBaden.Netatmo.Connect.HookServer;
 
 namespace IctBaden.Netatmo.PresenceApp
 {
@@ -52,8 +53,43 @@ namespace IctBaden.Netatmo.PresenceApp
                 Console.WriteLine($"{ev.LocalTime():g} {ev.Type}({ev.Category}): {ev.MessageText()}");
             }
 
-            Console.WriteLine("Press RETURN to exit.");
-            Console.ReadLine();
+            fileName = @"C:\Temp\WebHook.cfg";
+            if (File.Exists(fileName))
+            {
+                var hookUrl = File.ReadAllLines(fileName).First().Trim();
+                Console.WriteLine("Start WebHook Server");
+                var hook = new WebHookServer(60606);
+                hook.OnEvent += ev =>
+                {
+                    Console.WriteLine($"HookEvent: {ev.EventType} {ev.Message}");
+                };
+                hook.Start();
+
+                Console.WriteLine($"Register WebHook Server on {hookUrl}");
+                var ok = WebHook.Add(token.AccessToken, hookUrl);
+                Console.WriteLine("Register WebHook Server: " + (ok ? "OK" : "FAILED"));
+
+                Console.WriteLine();
+                Console.WriteLine("Press RETURN to exit.");
+                Console.ReadLine();
+
+                Console.WriteLine("Unegister WebHook Server");
+                ok = WebHook.Drop(token.AccessToken);
+                Console.WriteLine("Unegister WebHook Server: " + (ok ? "OK" : "FAILED"));
+
+                Console.WriteLine("Terminate WebHook Server");
+                hook.Terminate();
+            }
+            else
+            {
+                Console.WriteLine("No WebHook configured.");
+
+                Console.WriteLine();
+                Console.WriteLine("Press RETURN to exit.");
+                Console.ReadLine();
+            }
+
+            Console.WriteLine("Netatmo Presence App DONE.");
         }
     }
 }

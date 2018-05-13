@@ -35,6 +35,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,13 +45,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api\Presence.cs" />
+    <Compile Include="Api\WebHook.cs" />
     <Compile Include="Auth\Authentication.cs" />
     <Compile Include="Auth\AuthTokens.cs" />
+    <Compile Include="HookServer\SimpleHttpProcessor.cs" />
+    <Compile Include="HookServer\SimpleHttpServer.cs" />
+    <Compile Include="HookServer\WebHookServer.cs" />
     <Compile Include="Models\Camera.cs" />
-    <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\CameraEvent.cs" />
+    <Compile Include="Models\DetectedPerson.cs" />
+    <Compile Include="Models\EventTypes.cs" />
     <Compile Include="Models\GlobalInfo.cs" />
     <Compile Include="Models\Home.cs" />
     <Compile Include="Models\HomeData.cs" />
+    <Compile Include="Models\HookEvent.cs" />
     <Compile Include="Models\Place.cs" />
     <Compile Include="Models\Snapshot.cs" />
     <Compile Include="Models\User.cs" />

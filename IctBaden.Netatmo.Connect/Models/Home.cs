@@ -20,6 +20,6 @@ namespace IctBaden.Netatmo.Connect.Models
         public List<string> SmokeDetectors { get; set; }
 
         [JsonProperty("events")]
-        public List<Event> Events { get; set; }
+        public List<CameraEvent> Events { get; set; }
     }
 }

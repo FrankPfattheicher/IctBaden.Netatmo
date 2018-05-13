@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 
 namespace IctBaden.Netatmo.Connect.Models
 {
-    public class Event
+    public class CameraEvent
     {
         [JsonProperty("Id")]
         public string Id { get; set; }

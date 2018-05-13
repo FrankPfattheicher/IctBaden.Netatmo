@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace IctBaden.Netatmo.Connect.Api
 {
-    public class SmartHome
+    public static class SmartHome
     {
         /// <summary>
         /// https://dev.netatmo.com/resources/technical/reference/security/gethomedata

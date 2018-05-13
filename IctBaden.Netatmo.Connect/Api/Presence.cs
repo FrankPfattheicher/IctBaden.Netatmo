@@ -10,12 +10,12 @@ using Newtonsoft.Json;
 
 namespace IctBaden.Netatmo.Connect.Api
 {
-    public class Presence
+    public static class Presence
     {
         /// <summary>
         /// https://dev.netatmo.com/resources/technical/reference/security/gethomedata
         /// </summary>
-        public static List<Event> GetCameraEvents(string accessToken, string cameraId, int maxCount)
+        public static List<CameraEvent> GetCameraEvents(string accessToken, string cameraId, int maxCount)
         {
             try
             {
